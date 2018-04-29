@@ -1,0 +1,7 @@
+*.pyc
+instance/
+Flask/
+sqlite/
+migrations/
+.idea/
+__pycache__/
