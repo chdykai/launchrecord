@@ -1,6 +1,7 @@
 *.pyc
 instance/
 Flask/
+FlaskEnv/
 sqlite/
 migrations/
 .idea/
