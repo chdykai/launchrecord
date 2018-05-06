@@ -27,3 +27,25 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return "<User %r>" % self.nickname
 
+
+class Country(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), nullable=False)
+    rockets = db.relationship('Rocket', backref='country', lazy=True)
+
+
+class Rocket(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), index=True, unique=True)
+    records = db.relationship('Record', backref='rocket', lazy=True)
+    country_id = db.Column(db.Integer, db.ForeignKey('country.id'), nullable=False)
+
+
+class Record(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    rocket_id = db.Column(db.Integer, db.ForeignKey('rocket.id'), nullable=False)
+    launch_date = db.Column(db.DateTime, nullable=False)
+    payload = db.Column(db.Text, nullable=False)
+    spaceport = db.Column(db.String(128), nullable=False)
+    # country_id = db.Column(db.Integer, db.ForeignKey('rocket.country_id'), nullable=False)  # 这种调用父辈关系不知道行不行的通
+

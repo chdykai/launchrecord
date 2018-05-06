@@ -19,3 +19,6 @@ admin = Admin(app, name='luanchrecord-admin', template_mode='bootstrap3')
 from launchrecord import views, models
 
 admin.add_view(ModelView(models.User, db.session))
+admin.add_view(ModelView(models.Country, db.session))
+admin.add_view(ModelView(models.Rocket, db.session))
+admin.add_view(ModelView(models.Record, db.session))
