@@ -22,3 +22,7 @@ admin.add_view(ModelView(models.User, db.session))
 admin.add_view(ModelView(models.Country, db.session))
 admin.add_view(ModelView(models.Rocket, db.session))
 admin.add_view(ModelView(models.Record, db.session))
+admin.add_view(ModelView(models.RocketSeries, db.session))
+admin.add_view(ModelView(models.Spaceport, db.session))
+admin.add_view(ModelView(models.LaunchComplex, db.session))
+
